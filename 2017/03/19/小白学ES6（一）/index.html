@@ -14,14 +14,14 @@
 <meta property="og:url" content="http://yoursite.com/2017/03/19/小白学ES6（一）/index.html">
 <meta property="og:site_name" content="爱兔纸的彤彤">
 <meta property="og:description" content="ECMAScript 6（以下简称ES6）是JavaScript语言的最新标准，2015年6月正式通过，成为国际通行标准。所以，掌握好ES6的特性，是一个前端应有的品质。">
-<meta property="og:image" content="https://coding.net/u/hitler97/p/hitler97/git/blob/master/photo/1.png">
-<meta property="og:image" content="http://note.youdao.com/favicon.ico">
-<meta property="og:image" content="http://note.youdao.com/favicon.ico">
-<meta property="og:updated_time" content="2017-03-19T07:11:32.258Z">
+<meta property="og:image" content="https://coding.net/u/hitler97/p/hitler97/git/raw/master/photo/1.png">
+<meta property="og:image" content="https://coding.net/u/hitler97/p/hitler97/git/raw/master/photo/2.png">
+<meta property="og:image" content="https://coding.net/u/hitler97/p/hitler97/git/raw/master/photo/3.png">
+<meta property="og:updated_time" content="2017-03-19T07:17:59.509Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小白学ES6（一）">
 <meta name="twitter:description" content="ECMAScript 6（以下简称ES6）是JavaScript语言的最新标准，2015年6月正式通过，成为国际通行标准。所以，掌握好ES6的特性，是一个前端应有的品质。">
-<meta name="twitter:image" content="https://coding.net/u/hitler97/p/hitler97/git/blob/master/photo/1.png">
+<meta name="twitter:image" content="https://coding.net/u/hitler97/p/hitler97/git/raw/master/photo/1.png">
   
     <link rel="alternative" href="/atom.xml" title="爱兔纸的彤彤" type="application/atom+xml">
   
@@ -185,17 +185,18 @@
 <p>那么首先，我们要从let,var的区别开始讲讲ES6的新特性。<br>众所周知，用var操作符定义的变量将成为定义该变量的作用域中的局部变量。也就是说，如果在函数中使用var定义一个变量，那么这个变量在函数退出后会被销毁，举个例子:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function do()&#123;</div><div class="line">	var a=1;</div><div class="line">&#125;</div><div class="line">do();</div><div class="line">alert(a);</div></pre></td></tr></table></figure>
 <p>它的结果很明显就是这样：</p>
-<p><img src="https://coding.net/u/hitler97/p/hitler97/git/blob/master/photo/1.png" alt="image"></p>
+<p><img src="https://coding.net/u/hitler97/p/hitler97/git/raw/master/photo/1.png" alt="image"></p>
 <p>这样看var的作用还是很赞的，但是var本身其实隐藏着一个bug——变量提升（Hoisting）。多说无益，我们从实例中发现问题：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	var a=1;</div><div class="line">&#125;</div><div class="line">console.log(a);</div></pre></td></tr></table></figure>
 <p>让我们来猜一猜这串代码的结果，如果泥学过C系语言，你可能会认为var定义了一个局部变量，作用域是代码块内，所以其结果应该是报错（undefined）。但实际结果却是这样:</p>
-<p><img src="http://note.youdao.com/favicon.ico" alt="image"></p>
+<p><img src="https://coding.net/u/hitler97/p/hitler97/git/raw/master/photo/2.png" alt="image"></p>
 <p>这就是神奇的变量提升，在JS中，就是把定义在后面的东西（变量或函数）提升到前面中定义。 其作用类似于：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var a;</div><div class="line">&#123;</div><div class="line">	a=1;</div><div class="line">&#125;</div><div class="line">console.log(a);</div></pre></td></tr></table></figure>
 <p>而在ES6中新增了let命令，用来声明变量。它的用法类似于var，但是所声明的变量，只在let命令所在的代码块内有效。例如：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	var a=1;</div><div class="line">	let b=2;</div><div class="line">&#125;</div><div class="line">console.log(a,b);</div></pre></td></tr></table></figure>
 <p>结果是这样的：</p>
-<p><img src="http://note.youdao.com/favicon.ico" alt="image"><br>因此，我们可以知道let并不会像var一样发生变量提升问题。最后要注意一点，let不允许在相同作用域内，重复声明同一个变量。</p>
+<p><img src="https://coding.net/u/hitler97/p/hitler97/git/raw/master/photo/3.png" alt="image"></p>
+<p>因此，我们可以知道let并不会像var一样发生变量提升问题。最后要注意一点，let不允许在相同作用域内，重复声明同一个变量。</p>
 
       
 
